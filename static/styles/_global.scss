@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* Developed By Raan 😎 */
+
+@font-face {
+  src: url(../fonts/Poppins/Poppins-Regular.ttf);
+  font-family: "Poppins";
+}
+@font-face {
+  src: url(../fonts/Ubuntu/Ubuntu-Bold.ttf);
+  font-family: "Ubuntu";
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  /* --header1: calc(2rem + 1vw);
+    --text: calc(0.8rem + 1vw);
+    --special-color: #111e33; */
+  --main-color: #08a599;
+  --hover-color: #045852;
+}
+
+a {
+  color: black;
+}
+
+/* li,
+  button,
+  label,
+  input,
+  a,
+  p {
+    font-size: var(--text);
+    font-family: "Poppins", sans-serif;
+  } */
+/* h1 {
+    font-size: var(--header1);
+    font-family: "Ubuntu", sans-serif;
+} */

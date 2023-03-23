@@ -1,0 +1,391 @@
+<!-- Developed By Raan 😎 -->
+{% include "header.html" %}
+
+<main>
+  <section class="intro">
+    <div class="hero">
+      <h1>HackGenius<br /><span class="typing">Hacking</span></h1>
+      <p>"Think like a hacker, defend like a genius"</p>
+      <div class="cta">
+        <button class="cta1">Join Now</button>
+        <button class="cta2">Learn More</button>
+      </div>
+    </div>
+    <div class="pop">
+      <div class="box1 box">
+        <img src="../static/img/svg/news.svg" alt="" />
+        <h2>News</h2>
+        <p>Latest Updates</p>
+      </div>
+      <div class="box2 box">
+        <img src="../static/img/svg/tutorials.svg" alt="" />
+        <h2>Tutorials</h2>
+        <p>Learn Hacking</p>
+      </div>
+      <div class="box3 box">
+        <img src="../static/img/svg/tools.svg" alt="" />
+        <h2>Tools</h2>
+        <p>Hacking Tools</p>
+      </div>
+      <div class="box4 box">
+        <img src="../static/img/svg/privacy.svg" alt="" />
+        <h2>Privacy</h2>
+        <p>Online Privacy</p>
+      </div>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="about-heading">
+      <button>GET TO KNOW</button>
+      <h1>About Our Website</h1>
+    </div>
+    <div class="about-body">
+      <div class="about-left">
+        <div class="about-one">
+          <div class="line">
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/casino-solid-royal-straight-flush/512/Chess-256.png"
+              alt=""
+            />
+          </div>
+          <div class="innovative">
+            <p>Innovative</p>
+            <h2>Strategies</h2>
+          </div>
+        </div>
+        <div class="about-two">
+          <div class="line">
+            <img src="../static/img/webp/line.png" alt="" />
+          </div>
+          <div>
+            <h3>Enhancing your cybersecurity IQ</h3>
+          </div>
+        </div>
+        <div class="about-three">
+          <div class="since"><p>SERVE SINCE 2020</p></div>
+          <div class="op-since">
+            <div class="self">
+              <p>
+                Welcome to the world of cybersecurity and ethical hacking with
+                Mr Raan! Our website is dedicated to providing informative and
+                engaging content on the latest trends and developments in the
+                field of cybersecurity. From cybersecurity news and tutorials on
+                ethical hacking techniques, to reviews of the latest
+                cybersecurity tools and resources, our content is designed to
+                help you stay up-to-date and informed on all things
+                cybersecurity. Whether you're a seasoned cybersecurity
+                professional or just getting started in the field, Mr Raan is
+                here to guide you through the world of online security.
+              </p>
+            </div>
+            <div class="sign-founder">
+              <div class="sign">
+                <img src="../static/img/svg/signature_icon.svg" alt="" />
+              </div>
+              <div class="founder">
+                <h1>Mr RAAN</h1>
+                <p>Full Stack Developer & Security Specialist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-four">
+          <img src="../static/img/svg/dot_circle_solid_icon.svg" alt="" />
+          <p><a href="#">For More To Read</a></p>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="img-div1">
+          <video
+            src="../static/videos/1.mp4"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: 0.2s linear;
+            "
+            muted
+            poster="../static/videos/1.jpg"
+          ></video>
+        </div>
+        <div class="img-div2">
+          <div class="img-div22">
+            <video
+              src="../static/videos/2.mp4"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0.2s linear;
+              "
+              muted
+              poster="../static/videos/2.jpg"
+            ></video>
+          </div>
+          <div class="img-div22">
+            <video
+              src="../static/videos/3.mp4"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0.2s linear;
+              "
+              muted
+              poster="../static/videos/3.jpg"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-video">
+      <span>&times;</span>
+      <video src="../static/videos/1.mp4" muted controls autoplay></video>
+    </div>
+  </section>
+  <section class="blog" id="services">
+    <div class="blog-head">
+      <button>OUR INSIGHTS</button>
+      <h2>Thoughtful Blog Posts</h2>
+    </div>
+
+    <div class="blog-posts">
+      {% for post in all_posts %}
+      <div class="blog-post">
+        <a href="{{ url_for('show_post', post_id=post.id) }}">
+          <h2>{{post.title}}</h2>
+          <h3>{{post.subtitle}}</h3>
+        </a>
+        <div class="delete">
+          <p>Posted by {{post.author.name}} on {{post.date}}</p>
+          <span
+            >{% if current_user.id == 1: %}
+            <a href="{{url_for('delete_post', post_id=post.id) }}"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
+            {% endif %}</span
+          >
+        </div>
+      </div>
+      {% endfor %} {% if current_user.id == 1: %}
+      <div class="create-post">
+        <a href="{{url_for('add_new_post')}}">Create New Post</a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  <section class="fun-facts">
+    <div class="fun-fact">
+      <p class="ff1">INTERESTING FACTS</p>
+      <h2 class="ff2">Numbers Speak Our Past & Feature</h2>
+      <p class="ff3">
+        Shrinking from toil and pain these cases are perfectly simple and easy
+        to distinguish in a free hour.
+      </p>
+      <hr />
+    </div>
+
+    <div class="fun-fact fun-number">
+      <div class="fun1">
+        <div class="fun2 num" data-val="36">36</div>
+        <div class="fun3">
+          <div>
+            <img src="../static/img/svg/sound_spectrum_icon.svg" alt="" />
+          </div>
+          <div>Years of<br />experience</div>
+        </div>
+      </div>
+      <div class="fun1">
+        <div class="fun2 num" data-val="1700">1700</div>
+        <div class="fun3">
+          <div>
+            <img src="../static/img/svg/sound_spectrum_icon.svg" alt="" />
+          </div>
+          <div>Happy<br />Customers</div>
+        </div>
+      </div>
+      <div class="fun1">
+        <div class="fun2 num" data-val="765">765</div>
+        <div class="fun3">
+          <div>
+            <img src="../static/img/svg/sound_spectrum_icon.svg" alt="" />
+          </div>
+          <div>Projects<br />Completed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fun-fact fun-btn">
+      <div class="project">Start Your Project</div>
+      <div class="expert">Talk to Our Expert</div>
+    </div>
+  </section>
+  <section class="testimonial">
+    <div class="testi">
+      <h1>What people are<br />saying about us</h1>
+      <p>Secure your future with our technology solutions</p>
+    </div>
+    <div class="reviews">
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              I was blown away by the expertise and professionalism of John
+              Smith, a cybersecurity consultant who helped me secure my
+              company's sensitive data. Highly recommend!
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>Mary Johnson</h3>
+              <p>CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              Sarah Lee is a genius when it comes to penetration testing. Her
+              attention to detail is unparalleled and she was able to find
+              vulnerabilities that no one else could.
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>David Nguyen</h3>
+              <p>IT Manager</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              I hired Michael Chen to perform a security audit on my personal
+              computer and he exceeded my expectations. He was able to identify
+              several security flaws and gave me actionable recommendations to
+              fix them.
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>Emily Kim</h3>
+              <p>Freelance Writer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              As a fellow ethical hacker, I was thoroughly impressed by the
+              skills and knowledge of Alex Martinez. He was able to break into
+              my website and show me exactly where the weaknesses were.
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>James Lee</h3>
+              <p>Cybersecurity Researcher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              I had the pleasure of working with Jessica Brown on a complex
+              cybercrime investigation. Her technical abilities and dedication
+              to the case were instrumental in bringing the perpetrators to
+              justice.
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>Detective John Davis</h3>
+              <p>Law Enforcement Officer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="sign-icon">
+          <img src="../static/img/svg/colon_sign_icon.svg" alt="" />
+        </div>
+        <div class="review-box">
+          <div class="review-section">
+            <p class="review">
+              Brian Thompson is a true cybersecurity guru. He helped me secure
+              my home network and gave me valuable insights into how to stay
+              safe online.
+            </p>
+          </div>
+          <div class="profile-section">
+            <div class="profile-icon">
+              <img src="../static/img/svg/profile_icon.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <h3>Rachel Garcia</h3>
+              <p>Stay-at-Home Mom</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="form-wrapper">
+      <header class="form-head">
+        <h2>Contact Us</h2>
+      </header>
+      <form action="https://formspree.io/xxxx" method="POST">
+        <div class="name-form">
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="name" required minlength="4" />
+        </div>
+        <div class="email-form">
+          <label for="email">Email:</label>
+          <input id="email" type="email" name="_replyto" required />
+        </div>
+        <button value="Send" type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+{% include "footer.html" %}

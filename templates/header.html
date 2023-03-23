@@ -1,0 +1,90 @@
+<!-- My Header -->
+<!-- Developed By Raan 😎 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tag -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>
+      HackGenius | Your Guide to Ethical Hacking, Cybersecurity, and Beyond
+    </title>
+    <meta
+      name="description"
+      content="HackGenius is your ultimate resource for ethical hacking and cybersecurity. From beginner guides to advanced techniques, we cover everything you need to know to stay ahead of the game in today's fast-paced digital landscape. Join our community of like-minded individuals and take your skills to the next level with HackGenius."
+    />
+    <!-- 160 letters Maximum for the description -->
+    <meta
+      name="keywords"
+      content="Ethical hacking, Cybersecurity, Penetration testing, Information security, Network security, Vulnerability assessment, Web application security, Data protection, Cybercrime prevention, Online privacy, Digital forensics, Malware analysis, Cyber intelligence, Cyber defense, Cyber threat analysis"
+    />
+    <meta name="robots" content="index,follow" />
+    <!-- index, follow, noindex, nofollow -->
+
+    <!-- Link Tag -->
+    <link rel="stylesheet" href="../static/styles/style.css" />
+    <link rel="icon" href="../static/img/icon/HackGenius_favicon.ico" />
+
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navigation-pane">
+        <span>&times;</span>
+        <ul class="navigation-pane-links">
+          <li><a href="{{ url_for('get_all_posts') }}">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          {% if not current_user.is_authenticated: %}
+          <li>
+            <a href="{{ url_for('login') }}">Login</a>
+          </li>
+          <li>
+            <a href="{{ url_for('register') }}">Register</a>
+          </li>
+          {% else: %}
+          <li>
+            <a href="{{ url_for('logout') }}">Log Out</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="{{ url_for('get_all_posts') }}">
+            <img src="../static/img/svg/HackGenius_logo.svg" alt="" />
+          </a>
+        </div>
+        <div class="burger"><i class="fa-solid fa-bars"></i></div>
+        <div class="nav-links-div">
+          <ul class="nav-links">
+            <li><a href="{{ url_for('get_all_posts') }}">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            {% if not current_user.is_authenticated: %}
+            <li>
+              <a href="{{ url_for('login') }}">Login</a>
+            </li>
+            <li>
+              <a href="{{ url_for('register') }}">Register</a>
+            </li>
+            {% else: %}
+            <li>
+              <a href="{{ url_for('logout') }}">Log Out</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>

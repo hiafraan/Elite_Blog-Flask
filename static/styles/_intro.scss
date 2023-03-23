@@ -1,0 +1,187 @@
+header {
+  background: #212427;
+}
+
+.navigation-pane {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+
+  span {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 50px;
+    color: black;
+    font-weight: bolder;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
+
+.navigation-pane-links {
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+  padding: 1rem 4rem;
+}
+
+.intro {
+  margin-bottom: 8rem;
+  position: relative;
+}
+
+.logo {
+  img {
+    cursor: pointer;
+    width: 7%;
+  }
+}
+
+.burger {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-links-div {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+
+  a {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: darkgray;
+
+    &:hover {
+      color: var(--hover-color);
+    }
+  }
+}
+
+.hero {
+  background-image: url(../img/png/banner.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+  min-height: 80vh;
+
+  h1 {
+    color: white;
+    font-family: "Ubuntu";
+    font-size: 3.4rem;
+  }
+
+  p {
+    margin-top: 2rem;
+    color: white;
+    font-size: 2rem;
+  }
+
+  button {
+    margin-top: 4rem;
+    background: var(--main-color);
+    color: white;
+    padding: 1rem 3rem;
+    width: 40%;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: "Ubuntu";
+    font-size: 1.2rem;
+    border: none;
+
+    &:hover {
+      background: var(--hover-color);
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta2 {
+  background: white !important;
+  color: var(--main-color) !important;
+  &:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+.pop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0px 1px 10px 0px RGBA(0, 0, 0, 0.13);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  width: 100%;
+  cursor: pointer;
+
+  img {
+    width: 2rem;
+  }
+
+  h2 {
+    font-family: "Poppins", sans-serif;
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+  }
+
+  p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: #838998;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 20px 0px RGBA(0, 0, 0, 0.2);
+  }
+}
+
+.typed-cursor {
+  color: var(--main-color);
+}

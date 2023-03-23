@@ -1,0 +1,1036 @@
+@charset "UTF-8";
+/* Developed By Raan 😎 */
+@font-face {
+  src: url(../fonts/Poppins/Poppins-Regular.ttf);
+  font-family: "Poppins";
+}
+@font-face {
+  src: url(../fonts/Ubuntu/Ubuntu-Bold.ttf);
+  font-family: "Ubuntu";
+}
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  /* --header1: calc(2rem + 1vw);
+    --text: calc(0.8rem + 1vw);
+    --special-color: #111e33; */
+  --main-color: #08a599;
+  --hover-color: #045852;
+}
+
+a {
+  color: black;
+}
+
+/* li,
+  button,
+  label,
+  input,
+  a,
+  p {
+    font-size: var(--text);
+    font-family: "Poppins", sans-serif;
+  } */
+/* h1 {
+    font-size: var(--header1);
+    font-family: "Ubuntu", sans-serif;
+} */
+header {
+  background: #212427;
+}
+
+.navigation-pane {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.navigation-pane span {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 50px;
+  color: black;
+  font-weight: bolder;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.navigation-pane-links {
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+  padding: 1rem 4rem;
+}
+
+.intro {
+  margin-bottom: 8rem;
+  position: relative;
+}
+
+.logo img {
+  cursor: pointer;
+  width: 7%;
+}
+
+.burger {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-links-div {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+}
+.nav-links a {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: darkgray;
+}
+.nav-links a:hover {
+  color: var(--hover-color);
+}
+
+.hero {
+  background-image: url(../img/png/banner.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+  min-height: 80vh;
+}
+.hero h1 {
+  color: white;
+  font-family: "Ubuntu";
+  font-size: 3.4rem;
+}
+.hero p {
+  margin-top: 2rem;
+  color: white;
+  font-size: 2rem;
+}
+.hero button {
+  margin-top: 4rem;
+  background: var(--main-color);
+  color: white;
+  padding: 1rem 3rem;
+  width: 40%;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: "Ubuntu";
+  font-size: 1.2rem;
+  border: none;
+}
+.hero button:hover {
+  background: var(--hover-color);
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta2 {
+  background: white !important;
+  color: var(--main-color) !important;
+}
+.cta2:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.pop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0px 1px 10px 0px RGBA(0, 0, 0, 0.13);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+.box img {
+  width: 2rem;
+}
+.box h2 {
+  font-family: "Poppins", sans-serif;
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
+}
+.box p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #838998;
+}
+.box:hover {
+  box-shadow: 0px 1px 20px 0px RGBA(0, 0, 0, 0.2);
+}
+
+.typed-cursor {
+  color: var(--main-color);
+}
+
+.about {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+.about-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-heading button {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin: 3rem 0 2rem 0;
+  font-family: "Ubuntu";
+}
+.about-heading h1 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  font-family: "Ubuntu";
+}
+
+.about-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-right {
+  display: flex;
+  gap: 2.7rem;
+  margin-bottom: 5rem;
+}
+
+.img-div1,
+.img-div2 {
+  flex: 1;
+}
+
+.img-div1,
+.img-div22 {
+  height: 100%;
+  width: 100%;
+  border: 5px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.img-div2 {
+  height: 100%;
+  width: 100%;
+}
+
+video:hover {
+  transform: scale(1.1);
+}
+
+.img-div2 {
+  display: flex;
+  gap: 2.7rem;
+  flex-direction: column;
+}
+
+.popup-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.popup-video video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  border: 5px solid #fff;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.popup-video span {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: bolder;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* another part */
+.about-left {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+
+.about-one {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.about-two {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.about-two h3 {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-three {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.sign-founder {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--main-color);
+}
+
+.about-four {
+  display: flex;
+  margin-left: 4.5rem;
+  align-items: center;
+}
+.about-four img {
+  margin-right: 1rem;
+  width: 2rem;
+}
+.about-four p {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.innovative p {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.innovative h2 {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.line {
+  margin-right: 1.5rem;
+}
+.line img {
+  width: 3rem;
+}
+
+.since {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  margin-top: 2rem;
+  width: 8rem;
+}
+
+.self {
+  margin-bottom: 1rem;
+}
+.self p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sign {
+  margin-right: 2rem;
+}
+.sign img {
+  width: 4rem;
+}
+
+.founder h1 {
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+}
+.founder p {
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  gap: 2rem;
+}
+
+.blog-post {
+  padding: 2rem;
+  width: 100%;
+  background: rgb(46, 46, 46);
+  color: white;
+  border-radius: 0.8rem;
+  border: none;
+  box-shadow: 0px 1px 10px 0px RGBA(0, 0, 0, 0.13);
+  font-family: "Poppins", sans-serif;
+}
+.blog-post h2 {
+  font-size: 2.5rem;
+  color: white;
+}
+.blog-post h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+  color: rgb(186, 186, 186);
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.delete p {
+  font-size: 1rem;
+  color: rgb(151, 151, 151);
+}
+.delete span {
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+.create-post {
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  background: #1c1b20;
+}
+.create-post a {
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+.blog-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-head button {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin: 3rem 0 2rem 0;
+  font-family: "Ubuntu";
+}
+
+.blog-head h2 {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  font-family: "Ubuntu";
+}
+
+.post {
+  padding: 1rem;
+  width: 100%;
+  background: #191919;
+  color: #fcfcfc;
+  margin-bottom: 2rem;
+}
+.post h2 {
+  font-size: 2.5rem;
+}
+.post h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.post-space {
+  padding: 0rem 2rem;
+}
+
+.post-para {
+  margin-bottom: 4rem;
+}
+
+.edit {
+  text-align: center;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  background: #1c1b20;
+  margin: 2rem 0 4rem 0;
+}
+.edit a {
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+.comments {
+  margin: 4rem 0;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 2rem;
+}
+.comment p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.comment img {
+  width: 3rem;
+}
+.comment span {
+  font-size: 1rem;
+  color: gray;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.fun-facts {
+  background: url(../img/jpg/1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left center;
+  color: white;
+  padding: 6rem 0;
+  margin-top: 5rem;
+  min-height: 85vh;
+}
+
+.ff1 {
+  background: var(--main-color);
+  color: white;
+  width: 60%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-family: "Ubuntu";
+}
+
+.ff2 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  font-family: "Ubuntu";
+}
+
+.ff3 {
+  font-size: 1.5rem;
+  color: gray;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.fun-fact {
+  margin: auto;
+  width: 90%;
+}
+
+.fun-number,
+.fun-button {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.fun-number {
+  gap: 4rem;
+}
+
+.happy-customer {
+  margin: 0 2rem;
+}
+
+hr {
+  margin: 3rem 0 3rem 0;
+  width: 100%;
+  height: 0.007rem;
+  background: rgba(128, 128, 128, 0.441);
+  border: none;
+}
+
+.fun-button {
+  align-items: center;
+}
+
+.expert,
+.project {
+  text-align: center;
+  background: var(--main-color);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  width: 75%;
+  border: solid var(--main-color) 0.2rem;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.expert {
+  background: none;
+  border: solid white 0.2rem;
+}
+
+.fun1 {
+  display: flex;
+  font-weight: bold;
+}
+
+.fun2 {
+  font-size: 4rem;
+  flex: 1;
+}
+
+.fun3 {
+  flex: 1;
+}
+
+.testimonial {
+  min-height: 100vh;
+  width: 90%;
+  margin: auto;
+  padding: 6rem 0;
+}
+
+.testi {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2.2rem;
+}
+.testi h1 {
+  font-family: "Ubuntu";
+  margin-bottom: 2rem;
+}
+.testi p {
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-icon {
+  width: 4rem;
+  margin-right: 1rem;
+}
+
+.sign-icon img {
+  width: 2rem;
+}
+
+.review-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 2rem;
+}
+
+.review {
+  margin: 2rem 0;
+}
+
+.review-section {
+  flex: 1;
+}
+
+.reviews {
+  margin-top: 2rem;
+  display: flex;
+  font-size: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review-card {
+  background: rgb(46, 46, 46);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  flex-basis: 100rem;
+}
+
+#contact {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("../img/webp/contact.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-wrapper {
+  background: rgba(46, 46, 46, 0.8);
+  width: 90%;
+  color: white;
+  border-radius: 20px;
+}
+
+.form-head {
+  text-align: center;
+  padding: 2rem;
+  font-size: 2.5rem;
+  font-family: "Ubuntu";
+}
+
+.name-form,
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.form-wrapper label {
+  font-size: 1.5rem;
+}
+
+.form-wrapper button {
+  width: 100%;
+  margin-top: 4rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 2rem 0;
+  background: var(--main-color);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  font-family: "Poppins", sans-serif;
+}
+.form-wrapper button:hover {
+  background: var(--hover-color);
+}
+
+.form-wrapper input {
+  padding: 1rem 1rem;
+  width: 80%;
+}
+
+.form-head {
+  background: none;
+}
+
+footer {
+  background: #212427;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: darkgray;
+  min-height: 10vh;
+  padding: 1rem 4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.footer-content img {
+  cursor: pointer;
+  width: 7%;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-links a {
+  color: darkgray;
+  font-family: "Poppins", sans-serif;
+}
+.footer-links a:hover {
+  color: var(--hover-color);
+}
+
+.copy-write {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+
+@media (min-width: 576px) {
+  .popup-video video {
+    width: 500px;
+    height: 300px;
+  }
+}
+@media (min-width: 768px) {
+  .testi {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .hero button {
+    width: 35%;
+  }
+  .hero h1 {
+    font-size: 6.5rem;
+  }
+  .hero p {
+    font-size: 2.5rem;
+  }
+  .hero button {
+    font-size: 1.5rem;
+  }
+  .burger {
+    display: none;
+  }
+  .nav-links-div {
+    display: flex;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cta2 {
+    margin-top: 2rem !important;
+  }
+  .about-body {
+    gap: 4rem;
+    flex-wrap: nowrap;
+  }
+  .about-left,
+  .about-right {
+    flex: 1;
+  }
+  .popup-video video {
+    width: 700px;
+    height: 500px;
+  }
+  .reviews {
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .review-card {
+    flex: 1;
+    flex-basis: 30rem;
+  }
+  .ff1 {
+    width: 100%;
+    text-align: center;
+  }
+  .fun-btn {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .expert,
+  .project {
+    width: 100%;
+  }
+  .footer-links {
+    flex-direction: row;
+  }
+  .footer-content {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .footer-content h3,
+  .footer-content a,
+  .footer-content ul {
+    flex: 1;
+  }
+  .footer-content ul {
+    justify-content: flex-end;
+  }
+  .footer-logo {
+    text-align: left;
+  }
+  .pop {
+    gap: 2rem;
+  }
+  .box {
+    padding: 1.8rem 0;
+  }
+  .box img {
+    width: 3rem;
+  }
+  .box h2 {
+    font-size: 1.4rem;
+  }
+  .box p {
+    font-size: 1.2rem;
+  }
+  .about-heading button {
+    font-size: 1.4rem;
+  }
+  .about-heading h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+  }
+  .about-two h3 {
+    font-size: 2rem;
+  }
+  .about-four p {
+    font-size: 1.5rem;
+  }
+  .self p {
+    font-size: 1.5rem;
+  }
+  .line img {
+    width: 6rem;
+  }
+  .ff1 {
+    width: 15%;
+  }
+  .expert,
+  .project {
+    width: 20%;
+  }
+  .fun-btn {
+    justify-content: flex-start;
+  }
+  .fun-number {
+    flex-direction: row;
+  }
+  .fun1 {
+    gap: 2rem;
+  }
+  .fun-btn {
+    margin-top: 5rem;
+  }
+  .fun-number {
+    margin-top: 5rem;
+  }
+  hr {
+    width: 80%;
+  }
+  .review-card {
+    flex-basis: 40rem;
+    margin-top: 1rem;
+  }
+  .name-form,
+  .email-form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-wrapper input {
+    width: 40%;
+  }
+  .form-head {
+    padding-top: 4rem;
+  }
+  .name-form,
+  .email-form {
+    padding-top: 4rem;
+  }
+  .form-wrapper label {
+    font-size: 2.5rem;
+  }
+  .form-wrapper button {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1400px) {
+  .popup-video video {
+    width: 800px;
+    height: 600px;
+  }
+}
+.login {
+  min-height: 90vh;
+  padding: 2rem;
+}
+
+.slogan {
+  margin: 4rem 0;
+}/*# sourceMappingURL=style.css.map */
