@@ -1,11 +1,9 @@
 const year = document.getElementById("year");
-
 const currentYear = new Date();
 
 year.innerHTML = `© HackGenius ${currentYear.getFullYear()}`;
 
 // const popup-videos
-
 const videos = document.querySelectorAll(".about-right video");
 
 videos.forEach((vid) => {
@@ -15,21 +13,26 @@ videos.forEach((vid) => {
   };
 });
 
-document.querySelector(".popup-video span").onclick = () => {
-  document.querySelector(".popup-video").style.display = "none";
-};
+const closeBtn = document.querySelector(".popup-video span");
+if (closeBtn) {
+  closeBtn.onclick = () => {
+    document.querySelector(".popup-video").style.display = "none";
+  };
+}
 
 // Typing Animations
+const type = document.querySelector(".typing");
 
-var typed = new Typed(".typing", {
-  strings: ["Hacking", "Cybersecurity", "Technology"],
-  typeSpeed: 100,
-  backSpeed: 60,
-  loop: true,
-});
+if (type) {
+  var typed = new Typed(".typing", {
+    strings: ["Hacking", "Cybersecurity", "Technology"],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true,
+  });
+}
 
 // Card animations
-
 const cards = document.querySelectorAll(".review-card");
 
 cards.forEach((card) => {
@@ -58,7 +61,6 @@ cards.forEach((card) => {
 });
 
 // Counter
-
 let valueDisplays = document.querySelectorAll(".num");
 let interval = 4000;
 
@@ -76,7 +78,6 @@ valueDisplays.forEach((valueDisplay) => {
 });
 
 // navigation-pane
-
 const pane = document.querySelector(".navigation-pane");
 const burger = document.querySelector(".burger");
 const links = pane.querySelectorAll("a");

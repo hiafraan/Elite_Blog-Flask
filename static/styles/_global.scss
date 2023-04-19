@@ -45,3 +45,9 @@ a {
     font-size: var(--header1);
     font-family: "Ubuntu", sans-serif;
 } */
+
+// Prevent Bootstrap Error
+.navbar:before,
+.navbar:after {
+  content: none;
+}
