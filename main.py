@@ -5,30 +5,46 @@ from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from flask_login import (
+    UserMixin,
+    login_user,
+    LoginManager,
+    login_required,
+    current_user,
+    logout_user,
+)
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
+
 from flask_gravatar import Gravatar
 from functools import wraps
 from flask import abort
-from flask_gravatar import Gravatar
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
-gravatar = Gravatar(app, size=100, rating='g', default='retro',
-                    force_default=False, force_lower=False, use_ssl=False, base_url=None)
+gravatar = Gravatar(
+    app,
+    size=100,
+    rating="g",
+    default="retro",
+    force_default=False,
+    force_lower=False,
+    use_ssl=False,
+    base_url=None,
+)
 
 
 # CONNECT TO DB
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
@@ -81,16 +97,17 @@ def admin_only(f):
             return abort(403)
         # Otherwise continue with the route function
         return f(*args, **kwargs)
+
     return decorated_function
 
 
-@app.route('/')
+@app.route("/")
 def get_all_posts():
     posts = BlogPost.query.all()
     return render_template("index.html", all_posts=posts, current_user=current_user)
 
 
-@app.route('/register', methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -99,11 +116,9 @@ def register():
             # Send flash messsage
             flash("You've already signed up with that email, log in instead!")
             # Redirect to /login route.
-            return redirect(url_for('login'))
+            return redirect(url_for("login"))
         hash_and_salted_password = generate_password_hash(
-            form.password.data,
-            method='pbkdf2:sha256',
-            salt_length=8
+            form.password.data, method="pbkdf2:sha256", salt_length=8
         )
         new_user = User(
             email=form.email.data,
@@ -126,7 +141,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-@app.route('/login', methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -136,21 +151,21 @@ def login():
         # Email doesn't exist
         if not user:
             flash("That email does not exist, please try again.")
-            return redirect(url_for('login'))
+            return redirect(url_for("login"))
         # Password incorrect
         elif not check_password_hash(user.password, password):
-            flash('Password incorrect, please try again.')
-            return redirect(url_for('login'))
+            flash("Password incorrect, please try again.")
+            return redirect(url_for("login"))
         else:
             login_user(user)
-            return redirect(url_for('get_all_posts'))
+            return redirect(url_for("get_all_posts"))
     return render_template("login.html", form=form, current_user=current_user)
 
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('get_all_posts'))
+    return redirect(url_for("get_all_posts"))
 
 
 @app.route("/post/<int:post_id>", methods=["GET", "POST"])
@@ -165,14 +180,16 @@ def show_post(post_id):
         new_comment = Comment(
             text=form.comment_text.data,
             comment_author=current_user,
-            parent_post=requested_post
+            parent_post=requested_post,
         )
         db.session.add(new_comment)
         db.session.commit()
-    return render_template("post.html", post=requested_post, form=form, current_user=current_user)
+    return render_template(
+        "post.html", post=requested_post, form=form, current_user=current_user
+    )
 
 
-@app.route("/new-post", methods=['GET', 'POST'])
+@app.route("/new-post", methods=["GET", "POST"])
 # Mark with decorator
 @admin_only
 def add_new_post():
@@ -183,7 +200,7 @@ def add_new_post():
             subtitle=form.subtitle.data,
             body=form.body.data,
             author_id=current_user.id,
-            date=date.today().strftime("%B %d, %Y")
+            date=date.today().strftime("%B %d, %Y"),
         )
         db.session.add(new_post)
         db.session.commit()
@@ -196,10 +213,7 @@ def add_new_post():
 def edit_post(post_id):
     post = BlogPost.query.get(post_id)
     edit_form = CreatePostForm(
-        title=post.title,
-        subtitle=post.subtitle,
-        author=current_user,
-        body=post.body
+        title=post.title, subtitle=post.subtitle, author=current_user, body=post.body
     )
     if edit_form.validate_on_submit():
         post.title = edit_form.title.data
@@ -207,7 +221,9 @@ def edit_post(post_id):
         post.body = edit_form.body.data
         db.session.commit()
         return redirect(url_for("show_post", post_id=post.id))
-    return render_template("make-post.html", form=edit_form, current_user=current_user, is_edit=True)
+    return render_template(
+        "make-post.html", form=edit_form, current_user=current_user, is_edit=True
+    )
 
 
 @app.route("/delete/<int:post_id>")
@@ -216,7 +232,7 @@ def delete_post(post_id):
     post_to_delete = BlogPost.query.get(post_id)
     db.session.delete(post_to_delete)
     db.session.commit()
-    return redirect(url_for('get_all_posts'))
+    return redirect(url_for("get_all_posts"))
 
 
 if __name__ == "__main__":
